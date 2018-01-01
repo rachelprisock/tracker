@@ -1,0 +1,48 @@
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="<%= root_path %>">
+    <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
+    Tracker
+  </a>
+  <ul class="navbar-nav ml-auto">
+    <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <%= current_user.email %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="<%= user_url(current_user) %>">
+              <i class="fa fa-id-card-o" aria-hidden="true"></i>
+              Profile
+              <span class="sr-only">(current)</span>
+            </a>
+            <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              Sign Out
+            </a>
+          </div>
+        </li>
+    <% else %>
+        <li class="nav-item dropdown float-right">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-times" aria-hidden="true"></i>
+            Not signed in
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="<%= new_user_session_url %>">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              Sign In
+            </a>
+            <a class="dropdown-item" href="<%= new_user_registration_url %>">
+              <i class="fa fa-id-card-o" aria-hidden="true"></i>
+              Create Account
+            </a>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</nav>
