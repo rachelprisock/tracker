@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231232825) do
+ActiveRecord::Schema.define(version: 20180102075622) do
 
   create_table "emotion_severities", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 20171231232825) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "emotion_types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "emotions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "emotion_severity_id"
+    t.integer  "emotion_type_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "emotions", ["emotion_severity_id"], name: "index_emotions_on_emotion_severity_id"
+  add_index "emotions", ["emotion_type_id"], name: "index_emotions_on_emotion_type_id"
+  add_index "emotions", ["user_id"], name: "index_emotions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -33,6 +52,8 @@ ActiveRecord::Schema.define(version: 20171231232825) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
