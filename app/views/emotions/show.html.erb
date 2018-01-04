@@ -1,1 +1,18 @@
-<h1>Here's that emotion you just created <%= @emotion %></h1>
+<div class="col-md-8 offset-md-2">
+  <h1>About this emotion:</h1>
+  <div>
+    <div>
+      <b>Emotion:</b> <%= @emotion.emotion_type.name %>
+    </div>
+    <div>
+      <b>Severity:</b> <%= @emotion.emotion_severity.name %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@emotion.created_at) %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_emotion_path(@emotion), class: 'btn btn-primary' %>
+    <%= link_to "Delete", emotion_path(@emotion), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

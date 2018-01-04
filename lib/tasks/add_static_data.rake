@@ -17,4 +17,17 @@ namespace :add_static_data do
     EmotionType.create(name: 'Trust', description: 'A positive emotion; admiration is stronger; acceptance is weaker.')
     EmotionType.create(name: 'Anticipation', description: 'In the sense of looking forward positively to something which is going to happen. Expectation is more neutral.')
   end
+
+  desc 'Add Categories'
+  task to_categories: :environment do
+    Category.create(name: "Wellness")
+    Category.create(name: "Career")
+    Category.create(name: "Financial")
+  end
+
+  desc 'Add LifeEventTypes'
+  task to_life_event_types: :environment do
+    LifeEventType.create(name: "Work")
+    LifeEventType.create(name: "Life")
+  end
 end

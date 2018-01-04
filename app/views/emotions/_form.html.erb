@@ -1,0 +1,29 @@
+<div>
+  <ul>
+    <% if @emotion.errors %>
+        <% @emotion.errors.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col-md-5">
+  <%= form_for @emotion, html: {class: "emotion_form"} do |f| %>
+      <div class="form-group">
+        <%= f.label :emotion_severity_id, "Emotion Severity", class: "form-label" %>
+        <%= f.select :emotion_severity_id, EmotionSeverity.all.collect {|p| [ p.name, p.id ] }, {selected: @emotion.emotion_severity_id}, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :emotion_type_id, "Emotion Type", class: "form-label" %>
+        <%= f.select :emotion_type_id, EmotionType.all.collect {|p| [ p.name, p.id ] }, {selected: @emotion.emotion_type_id}, { class: "form-control" } %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <div class="actions form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

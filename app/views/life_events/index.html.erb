@@ -1,0 +1,36 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Life Events</h1>
+  <% if @life_events.any? %>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cateogry</th>
+          <th>Type</th>
+          <th>Entered At</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @life_events.each do |life_event| %>
+            <tr>
+              <td><%= life_event.name %></td>
+              <td><%= life_event.category.name %></td>
+              <td><%= life_event.life_event_type.name %></td>
+              <td><%= format_date(life_event.created_at) %></td>
+              <td>
+                <%= link_to "View", life_event_path(life_event) %> |
+                <%= link_to "Edit", edit_life_event_path(life_event) %> |
+                <%= link_to "Delete", life_event_path(life_event), method: :delete  %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% else %>
+    <p>You have not entered any life events.</p>
+  <% end %>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add a Life Event", new_life_event_path, class: "btn btn-success" %>
+  </div>
+</div>

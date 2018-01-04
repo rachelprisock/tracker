@@ -57,4 +57,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :emotions
+  resources :life_events
 end

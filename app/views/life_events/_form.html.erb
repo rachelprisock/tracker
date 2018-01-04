@@ -1,0 +1,39 @@
+<div>
+  <ul>
+    <% if @life_event.errors %>
+        <% @life_event.errors.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col-md-5">
+  <%= form_for @life_event, html: {class: "life_event_form"} do |f| %>
+      <div class="form-group">
+        <%= f.label :category_id, "Category", class: "form-label" %>
+        <%= f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {selected: @life_event.category_id}, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :life_event_type_id, "Type", class: "form-label" %>
+        <%= f.select :life_event_type_id, LifeEventType.all.collect {|p| [ p.name, p.id ] }, {selected: @life_event.life_event_type_id}, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name, "Name", class: "form-label" %>
+        <%= f.text_field :name, class: "form-control", required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, "Description", class: "form-label" %>
+        <%= f.text_area :description, rows: 3, class: "form-control", required: true %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <div class="actions form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

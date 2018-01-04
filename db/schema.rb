@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102075622) do
+ActiveRecord::Schema.define(version: 20180104055453) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "emotion_severities", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +44,26 @@ ActiveRecord::Schema.define(version: 20180102075622) do
   add_index "emotions", ["emotion_severity_id"], name: "index_emotions_on_emotion_severity_id"
   add_index "emotions", ["emotion_type_id"], name: "index_emotions_on_emotion_type_id"
   add_index "emotions", ["user_id"], name: "index_emotions_on_user_id"
+
+  create_table "life_event_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "life_events", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "life_event_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "life_events", ["category_id"], name: "index_life_events_on_category_id"
+  add_index "life_events", ["life_event_type_id"], name: "index_life_events_on_life_event_type_id"
+  add_index "life_events", ["user_id"], name: "index_life_events_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false

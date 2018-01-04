@@ -1,0 +1,24 @@
+<div class="col-md-8 offset-md-2">
+  <h1>About this life event:</h1>
+  <div>
+    <div>
+      <b>Category:</b> <%= @life_event.category.name %>
+    </div>
+    <div>
+      <b>Type:</b> <%= @life_event.life_event_type.name %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@life_event.created_at) %>
+    </div>
+    <div>
+      <b>Name:</b> <%= @life_event.name %>
+    </div>
+    <div>
+      <b>Description:</b> <%= @life_event.description %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_life_event_path(@life_event), class: 'btn btn-primary' %>
+    <%= link_to "Delete", life_event_path(@life_event), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>
