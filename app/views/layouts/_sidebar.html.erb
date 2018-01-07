@@ -1,0 +1,57 @@
+<div id="sidebar-menu" class="col-md-2" style="padding: 1em; background: #80aaff">
+  <!--option 2: #7376df-->
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="<%= user_url(current_user) %>">
+        <i class="fa fa-id-card-o" aria-hidden="true"></i>
+        Profile
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fa fa-line-chart" aria-hidden="true"></i>
+        Progress
+      </a>
+    </li>
+    <li id="accordion" class="nav-item dropdown">
+      <a class="nav-link" href="#eventMenuCollapse" data-toggle="collapse" aria-expanded="true" data-parent="#accordion" >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Track
+      </a>
+      <div id="eventMenuCollapse" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+        <ul style="list-style-type: none;">
+          <li>
+            <a href="<%= new_emotion_path %>">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              Emotion
+            </a>
+          </li>
+          <li>
+            <a href="<%= new_life_event_path %>">
+              <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+              Event
+            </a>
+          </li>
+          <li>
+            <a href="<%= new_habit_path %>">
+              <i class="fa fa-bicycle" aria-hidden="true"></i>
+              Habit
+            </a>
+          </li>
+          <li>
+            <a href="<%= new_transaction_path %>">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              Money
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= goals_path(current_user) %>">
+        <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+        Goals
+      </a>
+    </li>
+  </ul>
+</div>

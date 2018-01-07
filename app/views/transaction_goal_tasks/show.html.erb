@@ -1,0 +1,33 @@
+<div class="col-md-8 offset-md-2">
+  <h1>About this transaction goal task:</h1>
+  <div>
+    <div>
+      <b>Name:</b> <%= @transaction_goal_task.name %>
+    </div>
+    <div>
+      <b>Goal:</b> <%= @transaction_goal_task.goal.name %>
+    </div>
+    <div>
+      <b>Transaction Category:</b> <%= @transaction_goal_task.transaction_category.name %>
+    </div>
+    <div>
+      <b>Goal Amount:</b> <%= number_to_currency(@transaction_goal_task.goal_amount_in_dollars) %>
+    </div>
+    <div>
+      <b>Transaction Required:</b> <%= number_to_currency(@transaction_goal_task.goal_amount_in_dollars) %>
+    </div>
+    <div>
+      <b>Start Date:</b> <%= format_date(@transaction_goal_task.start_date) %>
+    </div>
+    <div>
+      <b>End Date:</b> <%= format_date(@transaction_goal_task.end_date) %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@transaction_goal_task.created_at) %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_transaction_goal_task_path(@transaction_goal_task), class: 'btn btn-primary' %>
+    <%= link_to "Delete", transaction_goal_task_path(@transaction_goal_task), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

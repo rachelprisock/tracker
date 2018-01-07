@@ -1,0 +1,34 @@
+<div>
+  <ul>
+    <% if @goal.errors %>
+        <% @goal.errors.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col-md-5">
+  <%= form_for @goal, html: {class: "goal_form"} do |f| %>
+      <div class="field form-group">
+        <%= f.label :name, "Name", class: "form-label" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :start_date, "Start Date", class: "form-label" %>
+        <%= f.date_field :start_date, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, "End Date", class: "form-label" %>
+        <%= f.date_field :end_date, class: "form-control" %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <div class="actions form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

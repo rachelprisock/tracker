@@ -1,0 +1,58 @@
+<div>
+  <ul>
+    <% if @transaction_goal_task.errors %>
+        <% @transaction_goal_task.errors.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col-md-5">
+  <%= form_for @transaction_goal_task, html: {class: "transaction_goal_task_form"} do |f| %>
+      <div class="field form-group">
+        <%= f.label :name, "Name", class: "form-label" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :goal_id, "Goal", class: "form-label" %>
+        <%= f.select :goal_id, Goal.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction_goal_task.goal_id}, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :transaction_category_id, "Transaction Category", class: "form-label" %>
+        <%= f.select :transaction_category_id, TransactionCategory.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction_goal_task.transaction_category_id}, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :start_date, "Start Date", class: "form-label" %>
+        <%= f.date_field :start_date, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, "End Date", class: "form-label" %>
+        <%= f.date_field :end_date, class: "form-control" %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <%= f.number_field :goal_amount_in_dollars, value: @transaction_goal_task.goal_amount_in_dollars, class: "form-control" %>
+        <span class="input-group-addon">.00</span>
+      </div>
+
+      <div class="form-check">
+        <br>
+        <%= f.label :transaction_required, class: "form-check-label" do %>
+            <%= f.check_box :transaction_required, checked: true, class: "form-check-input" %>
+            Required
+        <% end %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <div class="actions form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

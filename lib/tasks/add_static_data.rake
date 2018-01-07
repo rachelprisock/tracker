@@ -30,4 +30,37 @@ namespace :add_static_data do
     LifeEventType.create(name: "Work")
     LifeEventType.create(name: "Life")
   end
+
+  desc 'Add HabitTypes'
+  task to_habit_types: :environment do
+    HabitType.create(name: "Exercise")
+    HabitType.create(name: "Meditation")
+    HabitType.create(name: "Smoking")
+    HabitType.create(name: "Coding")
+    HabitType.create(name: "Reading")
+  end
+
+  desc 'Add TransactionTypes'
+  task to_transaction_types: :environment do
+    TransactionType.create(name: "Income")
+    TransactionType.create(name: "Spending")
+  end
+
+  desc 'Add TransactionCategories'
+  task to_transaction_categories: :environment do
+    TransactionCategory.create(name: "Eating Out")
+    TransactionCategory.create(name: "Groceries")
+    TransactionCategory.create(name: "Rent")
+    TransactionCategory.create(name: "Bills")
+    TransactionCategory.create(name: "Bars")
+    TransactionCategory.create(name: "Liquor Stores")
+    TransactionCategory.create(name: "Cigarettes")
+    TransactionCategory.create(name: "Clothes Shopping")
+    TransactionCategory.create(name: "Other Shopping")
+    TransactionCategory.create(name: "Gifts")
+    TransactionCategory.create(name: "Gas")
+    TransactionCategory.create(name: "Smoking Cessation")
+    TransactionCategory.create(name: "Paycheck")
+    TransactionCategory.create(name: "Contracting")
+  end
 end

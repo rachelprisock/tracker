@@ -1,0 +1,34 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Transactions</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transaction Category</th>
+        <th>Transaction Type</th>
+        <th>Amount</th>
+        <th>Required</th>
+        <th>Transaction Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.transaction_category.name %></td>
+          <td><%= transaction.transaction_type.name %></td>
+          <td><%= number_to_currency(transaction.amount_in_dollars) %></td>
+          <td><%= transaction.required %></td>
+          <td><%= format_date(transaction.transaction_date) %></td>
+          <td>
+            <%= link_to "View", transaction_path(transaction) %> |
+            <%= link_to "Edit", edit_transaction_path(transaction) %> |
+            <%= link_to "Delete", transaction_path(transaction), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_transaction_path, class: "btn btn-success" %>
+  </div>
+</div>

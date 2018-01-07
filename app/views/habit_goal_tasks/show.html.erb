@@ -1,0 +1,33 @@
+<div class="col-md-8 offset-md-2">
+  <h1>About this habit goal task:</h1>
+  <div>
+    <div>
+      <b>Name:</b> <%= @habit_goal_task.name %>
+    </div>
+    <div>
+      <b>Goal:</b> <%= @habit_goal_task.goal.name %>
+    </div>
+    <div>
+      <b>Habit Type:</b> <%= @habit_goal_task.habit_type.name %>
+    </div>
+    <div>
+      <b>Category:</b> <%= @habit_goal_task.category.name %>
+    </div>
+    <div>
+      <b>Goal Time in Minutes:</b> <%= @habit_goal_task.goal_time_in_minutes %>
+    </div>
+    <div>
+      <b>Start Date:</b> <%= format_date(@habit_goal_task.start_date) %>
+    </div>
+    <div>
+      <b>End Date:</b> <%= format_date(@habit_goal_task.end_date) %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@habit_goal_task.created_at) %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_habit_goal_task_path(@habit_goal_task), class: 'btn btn-primary' %>
+    <%= link_to "Delete", habit_goal_task_path(@habit_goal_task), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Habit Goal Tasks</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Habit Type</th>
+        <th>Category</th>
+        <th>Goal Time Spent</th>
+        <th>Goal</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @habit_goal_tasks.each do |habit_goal_task| %>
+        <tr>
+          <td><%= habit_goal_task.name %></td>
+          <td><%= habit_goal_task.habit_type.name %></td>
+          <td><%= habit_goal_task.category.name %></td>
+          <td><%= habit_goal_task.goal_time_in_minutes %></td>
+          <td><%= habit_goal_task.goal.name %></td>
+          <td><%= format_date(habit_goal_task.start_date) %></td>
+          <td><%= format_date(habit_goal_task.end_date) %></td>
+          <td>
+            <%= link_to "View", habit_goal_task_path(habit_goal_task) %> |
+            <%= link_to "Edit", edit_habit_goal_task_path(habit_goal_task) %> |
+            <%= link_to "Delete", habit_goal_task_path(habit_goal_task), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_habit_goal_task_path, class: "btn btn-success" %>
+  </div>
+</div>

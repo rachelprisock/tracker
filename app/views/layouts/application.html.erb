@@ -7,13 +7,28 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
 </head>
 <body>
-  <div>
+  <div id="allContent">
     <%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div id="content-and-sidebar" class="row col-md-12">
+      <%= render 'layouts/sidebar' %>
+      <div id="main-content" class="col-md-10">
+        <div class="row" style="padding: 1em">
+          <div class="col-md-1">
+            <i class="fa fa-bars fa-2x" id="menu-bar" aria-hidden="true"></i>
+          </div>
+          <div class='col-md-11'>
+            <%= render 'layouts/messages' %>
+          </div>
+        </div>
+        <div class="row">
+          <%= yield %>
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

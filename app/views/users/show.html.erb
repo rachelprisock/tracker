@@ -1,22 +1,19 @@
-<section class="jumbotron" style="background: white;">
-  <div class="container" style="max-width: 60rem">
-    <h1 class="jumbotron-heading">Hello <%= @full_name %>!</h1>
-    <p class="lead text-muted">
-      From here you can see your weekly progress, add new goals and track everything.
-    </p>
+<div class="col-md-12">
+  <!--<h1 class="jumbotron-heading">Hello <%= @full_name %>!</h1>-->
+  <!--<p class="lead text-muted">-->
+    <!--From here you can see your weekly progress, add new goals and track everything.-->
+  <!--</p>-->
+  <div class="row widget-row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            Your Daily Activities
+          </h4>
+          <hr>
+          This is some text within a card block.
+        </div>
+      </div>
+    </div>
   </div>
-</section>
-<div class="col-md-8 offset-md-2">
-  <h3>Emotions:</h3>
-  <ul>
-    <li><%= link_to "Add New Emotion", new_emotion_path %></li>
-    <li><%= link_to "Show All Emotions", emotions_path %></li>
-  </ul>
-</div>
-<div class="col-md-8 offset-md-2">
-  <h3>Life Events:</h3>
-  <ul>
-    <li><%= link_to "Add New Life Event", new_life_event_path %></li>
-    <li><%= link_to "Show All Life Event", life_events_path %></li>
-  </ul>
 </div>

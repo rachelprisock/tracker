@@ -1,0 +1,40 @@
+/* line 1, /Users/rachelprisock/dev/tracker/app/assets/stylesheets/nav.scss */
+#top-navbar {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+/* line 5, /Users/rachelprisock/dev/tracker/app/assets/stylesheets/nav.scss */
+#sidebar-menu {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+/* line 9, /Users/rachelprisock/dev/tracker/app/assets/stylesheets/nav.scss */
+a.navbar-brand {
+  color: white !important;
+}
+
+/* line 13, /Users/rachelprisock/dev/tracker/app/assets/stylesheets/nav.scss */
+a.nav-link.dropdown-toggle {
+  color: white !important;
+}
+
+/* line 17, /Users/rachelprisock/dev/tracker/app/assets/stylesheets/nav.scss */
+#sidebar-menu li.nav-item a {
+  color: white;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

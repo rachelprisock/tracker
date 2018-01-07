@@ -1,0 +1,21 @@
+<div class="col-md-8 offset-md-2">
+  <h1>About this habit:</h1>
+  <div>
+    <div>
+      <b>Category:</b> <%= @habit.category.name %>
+    </div>
+    <div>
+      <b>Habit Type:</b> <%= @habit.habit_type.name %>
+    </div>
+    <div>
+      <b>Time Spent:</b> <%= @habit.time_in_minutes %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@habit.created_at) %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_habit_path(@habit), class: 'btn btn-primary' %>
+    <%= link_to "Delete", habit_path(@habit), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

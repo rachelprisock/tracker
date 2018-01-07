@@ -1,0 +1,21 @@
+<div class="col-md-8 offset-md-2">
+  <h1>About this goal:</h1>
+  <div>
+    <div>
+      <b>Name:</b> <%= @goal.name %>
+    </div>
+    <div>
+      <b>Start Date:</b> <%= format_date(@goal.start_date) %>
+    </div>
+    <div>
+      <b>End Date:</b> <%= format_date(@goal.end_date) %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@goal.created_at) %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_goal_path(@goal), class: 'btn btn-primary' %>
+    <%= link_to "Delete", goal_path(@goal), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

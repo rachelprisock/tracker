@@ -1,0 +1,38 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Transaction Goal Tasks</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Transaction Category</th>
+        <th>Goal Amount</th>
+        <th>Transaction Required</th>
+        <th>Goal</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transaction_goal_tasks.each do |transaction_goal_task| %>
+        <tr>
+          <td><%= transaction_goal_task.name %></td>
+          <td><%= transaction_goal_task.transaction_category.name %></td>
+          <td><%= number_to_currency(transaction_goal_task.goal_amount_in_dollars) %></td>
+          <td><%= transaction_goal_task.transaction_required %></td>
+          <td><%= transaction_goal_task.goal.name %></td>
+          <td><%= format_date(transaction_goal_task.start_date) %></td>
+          <td><%= format_date(transaction_goal_task.end_date) %></td>
+          <td>
+            <%= link_to "View", transaction_goal_task_path(transaction_goal_task) %> |
+            <%= link_to "Edit", edit_transaction_goal_task_path(transaction_goal_task) %> |
+            <%= link_to "Delete", transaction_goal_task_path(transaction_goal_task), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_transaction_goal_task_path, class: "btn btn-success" %>
+  </div>
+</div>

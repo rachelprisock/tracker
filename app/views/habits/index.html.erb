@@ -1,0 +1,32 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Habits</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Habit Type</th>
+        <th>Time in Minutes</th>
+        <th>Entered At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @habits.each do |habit| %>
+        <tr>
+          <td><%= habit.category.name %></td>
+          <td><%= habit.habit_type.name %></td>
+          <td><%= habit.time_in_minutes %></td>
+          <td><%= format_date(habit.created_at) %></td>
+          <td>
+            <%= link_to "View", habit_path(habit) %> |
+            <%= link_to "Edit", edit_habit_path(habit) %> |
+            <%= link_to "Delete", habit_path(habit), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_habit_path, class: "btn btn-success" %>
+  </div>
+</div>

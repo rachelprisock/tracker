@@ -1,0 +1,53 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#allContent {
+  height:100%;
+  width:100%;
+}
+
+#top-navbar {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+#sidebar-menu {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+a.navbar-brand {
+  color: white !important;
+}
+
+a.nav-link.dropdown-toggle {
+  color: white !important;
+}
+
+#sidebar-menu li.nav-item a {
+  color: white;
+}
+
+#sidebar-menu li.nav-item a i {
+  padding-right: 1em;
+}
+
+#content-and-sidebar {
+  margin: 0;
+  padding: 0;
+  height:100%;
+  width:100%;
+}
+
+#main-content {
+  background-color: #f7f7f7;
+}
+
+.sidebar-dropdown-menu {
+  background-color: #80aaff;
+}

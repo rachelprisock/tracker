@@ -1,0 +1,30 @@
+<div class="col-md-8 offset-md-2">
+  <h1 style="padding-bottom: 1em;">Goals</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @goals.each do |goal| %>
+        <tr>
+          <td><%= goal.name %></td>
+          <td><%= format_date(goal.start_date) %></td>
+          <td><%= format_date(goal.end_date) %></td>
+          <td>
+            <%= link_to "View", goal_path(goal) %> |
+            <%= link_to "Edit", edit_goal_path(goal) %> |
+            <%= link_to "Delete", goal_path(goal), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_goal_path, class: "btn btn-success" %>
+  </div>
+</div>

@@ -58,4 +58,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :emotions
   resources :life_events
+  resources :habits
+  resources :transactions
+  resources :goals
+  resources :transaction_goal_tasks
+  resources :habit_goal_tasks
 end
