@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180108005253) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -41,9 +44,9 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "emotions", ["emotion_severity_id"], name: "index_emotions_on_emotion_severity_id"
-  add_index "emotions", ["emotion_type_id"], name: "index_emotions_on_emotion_type_id"
-  add_index "emotions", ["user_id"], name: "index_emotions_on_user_id"
+  add_index "emotions", ["emotion_severity_id"], name: "index_emotions_on_emotion_severity_id", using: :btree
+  add_index "emotions", ["emotion_type_id"], name: "index_emotions_on_emotion_type_id", using: :btree
+  add_index "emotions", ["user_id"], name: "index_emotions_on_user_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
     t.string   "name"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.integer  "user_id"
   end
 
-  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
 
   create_table "habit_goal_tasks", force: :cascade do |t|
     t.integer  "habit_type_id"
@@ -69,10 +72,10 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.string   "name"
   end
 
-  add_index "habit_goal_tasks", ["category_id"], name: "index_habit_goal_tasks_on_category_id"
-  add_index "habit_goal_tasks", ["goal_id"], name: "index_habit_goal_tasks_on_goal_id"
-  add_index "habit_goal_tasks", ["habit_type_id"], name: "index_habit_goal_tasks_on_habit_type_id"
-  add_index "habit_goal_tasks", ["user_id"], name: "index_habit_goal_tasks_on_user_id"
+  add_index "habit_goal_tasks", ["category_id"], name: "index_habit_goal_tasks_on_category_id", using: :btree
+  add_index "habit_goal_tasks", ["goal_id"], name: "index_habit_goal_tasks_on_goal_id", using: :btree
+  add_index "habit_goal_tasks", ["habit_type_id"], name: "index_habit_goal_tasks_on_habit_type_id", using: :btree
+  add_index "habit_goal_tasks", ["user_id"], name: "index_habit_goal_tasks_on_user_id", using: :btree
 
   create_table "habit_types", force: :cascade do |t|
     t.string   "name"
@@ -88,8 +91,8 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.integer  "user_id"
   end
 
-  add_index "habits", ["habit_type_id"], name: "index_habits_on_habit_type_id"
-  add_index "habits", ["user_id"], name: "index_habits_on_user_id"
+  add_index "habits", ["habit_type_id"], name: "index_habits_on_habit_type_id", using: :btree
+  add_index "habits", ["user_id"], name: "index_habits_on_user_id", using: :btree
 
   create_table "life_event_types", force: :cascade do |t|
     t.string   "name"
@@ -106,8 +109,8 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "life_events", ["life_event_type_id"], name: "index_life_events_on_life_event_type_id"
-  add_index "life_events", ["user_id"], name: "index_life_events_on_user_id"
+  add_index "life_events", ["life_event_type_id"], name: "index_life_events_on_life_event_type_id", using: :btree
+  add_index "life_events", ["user_id"], name: "index_life_events_on_user_id", using: :btree
 
   create_table "transaction_categories", force: :cascade do |t|
     t.string   "name"
@@ -128,9 +131,9 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.string   "name"
   end
 
-  add_index "transaction_goal_tasks", ["goal_id"], name: "index_transaction_goal_tasks_on_goal_id"
-  add_index "transaction_goal_tasks", ["transaction_category_id"], name: "index_transaction_goal_tasks_on_transaction_category_id"
-  add_index "transaction_goal_tasks", ["user_id"], name: "index_transaction_goal_tasks_on_user_id"
+  add_index "transaction_goal_tasks", ["goal_id"], name: "index_transaction_goal_tasks_on_goal_id", using: :btree
+  add_index "transaction_goal_tasks", ["transaction_category_id"], name: "index_transaction_goal_tasks_on_transaction_category_id", using: :btree
+  add_index "transaction_goal_tasks", ["user_id"], name: "index_transaction_goal_tasks_on_user_id", using: :btree
 
   create_table "transaction_types", force: :cascade do |t|
     t.string   "name"
@@ -149,9 +152,9 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.integer  "user_id"
   end
 
-  add_index "transactions", ["transaction_category_id"], name: "index_transactions_on_transaction_category_id"
-  add_index "transactions", ["transaction_type_id"], name: "index_transactions_on_transaction_type_id"
-  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
+  add_index "transactions", ["transaction_category_id"], name: "index_transactions_on_transaction_category_id", using: :btree
+  add_index "transactions", ["transaction_type_id"], name: "index_transactions_on_transaction_type_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -170,7 +173,25 @@ ActiveRecord::Schema.define(version: 20180108005253) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "emotions", "emotion_severities"
+  add_foreign_key "emotions", "emotion_types"
+  add_foreign_key "emotions", "users"
+  add_foreign_key "goals", "users"
+  add_foreign_key "habit_goal_tasks", "categories"
+  add_foreign_key "habit_goal_tasks", "goals"
+  add_foreign_key "habit_goal_tasks", "habit_types"
+  add_foreign_key "habit_goal_tasks", "users"
+  add_foreign_key "habits", "habit_types"
+  add_foreign_key "habits", "users"
+  add_foreign_key "life_events", "life_event_types"
+  add_foreign_key "life_events", "users"
+  add_foreign_key "transaction_goal_tasks", "goals"
+  add_foreign_key "transaction_goal_tasks", "transaction_categories"
+  add_foreign_key "transaction_goal_tasks", "users"
+  add_foreign_key "transactions", "transaction_categories"
+  add_foreign_key "transactions", "transaction_types"
+  add_foreign_key "transactions", "users"
 end
