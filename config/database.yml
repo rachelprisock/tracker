@@ -12,5 +12,6 @@ production:
   encoding: utf8
   database: tracker_production
   pool: 5
+  host: localhost
   username: 
   password:
