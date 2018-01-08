@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -54,6 +55,8 @@ group :development do
   # Annotate models with schema definitions
   gem 'annotate'
 end
+
+gem 'rails_12factor'
 
 gem 'devise'
 
