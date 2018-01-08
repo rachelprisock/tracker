@@ -3,7 +3,6 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Category</th>
         <th>Habit Type</th>
         <th>Time in Minutes</th>
         <th>Entered At</th>
@@ -13,7 +12,6 @@
     <tbody>
       <% @habits.each do |habit| %>
         <tr>
-          <td><%= habit.category.name %></td>
           <td><%= habit.habit_type.name %></td>
           <td><%= habit.time_in_minutes %></td>
           <td><%= format_date(habit.created_at) %></td>

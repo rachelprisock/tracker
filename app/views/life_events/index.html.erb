@@ -5,7 +5,6 @@
         <thead>
         <tr>
           <th>Name</th>
-          <th>Cateogry</th>
           <th>Type</th>
           <th>Entered At</th>
           <th>Actions</th>
@@ -15,7 +14,6 @@
         <% @life_events.each do |life_event| %>
             <tr>
               <td><%= life_event.name %></td>
-              <td><%= life_event.category.name %></td>
               <td><%= life_event.life_event_type.name %></td>
               <td><%= format_date(life_event.created_at) %></td>
               <td>
