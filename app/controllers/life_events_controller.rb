@@ -47,6 +47,6 @@ class LifeEventsController < ApplicationController
   private
 
   def life_event_params
-    params.require(:life_event).permit(:category_id, :name, :description, :life_event_type_id, :user_id)
+    params.require(:life_event).permit(:name, :description, :life_event_type_id, :user_id)
   end
 end

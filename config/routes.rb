@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #   end
 
   resources :users, only: [:show]
-  resources :emotions
+  resources :emotions, except: [:show]
   resources :life_events
   resources :habits
   resources :transactions

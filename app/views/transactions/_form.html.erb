@@ -11,30 +11,31 @@
 <div class="col-md-5">
   <%= form_for @transaction, html: {class: "transaction_form"} do |f| %>
       <div class="form-group">
-        <%= f.label :transaction_category_id, "Transaction Category", class: "form-label" %>
-        <%= f.select :transaction_category_id, TransactionCategory.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_category_id}, { class: "form-control", autofocus: true } %>
-      </div>
-      <div class="form-group">
-        <%= f.label :transaction_type_id, "Transaction Type", class: "form-label" %>
+        <p class="lead">What type of transaction?</p>
         <%= f.select :transaction_type_id, TransactionType.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_type_id}, { class: "form-control" } %>
       </div>
 
-      <div class="input-group">
+      <div class="form-group">
+        <p class="lead">What category does this fall under?</p>
+        <%= f.select :transaction_category_id, TransactionCategory.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_category_id}, { class: "form-control", autofocus: true } %>
+      </div>
+
+      <p class="lead">How much?</p>
+      <div class="form-group input-group">
         <span class="input-group-addon">$</span>
         <%= f.number_field :amount_in_dollars, value: @transaction.amount_in_dollars, class: "form-control" %>
         <span class="input-group-addon">.00</span>
       </div>
 
       <div class="form-group">
-        <%= f.label :transaction_date, "Date", class: "form-label" %>
+        <p class="lead">When did this occur?</p>
         <%= f.date_field :transaction_date, class: "form-control" %>
       </div>
 
       <div class="form-check">
-        <br>
         <%= f.label :required, class: "form-check-label" do %>
             <%= f.check_box :required, checked: true, class: "form-check-input" %>
-            Required
+            Was this a necessity?
         <% end %>
       </div>
 

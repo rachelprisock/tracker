@@ -1,3 +1,3 @@
 class TransactionType < ActiveRecord::Base
-  has_many :transaction
+  has_many :transactions
 end

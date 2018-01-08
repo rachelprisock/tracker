@@ -7,14 +7,10 @@ class EmotionsController < ApplicationController
   def create
      emotion = Emotion.new(emotion_params)
     if emotion.save!
-      redirect_to emotion_path(emotion), success: "You've added an emotion"
+      redirect_to emotions_path, success: "You've logged that emotion"
     else
-      redirect_to new_emotion_path, danger: "Unable to save your information"
+      redirect_to new_emotion_path, danger: "Failed to save"
     end
-  end
-
-  def show
-    @emotion = Emotion.find(params[:id])
   end
 
   def index
@@ -29,7 +25,7 @@ class EmotionsController < ApplicationController
   def update
     @emotion = Emotion.find(params[:id])
     if @emotion.update_attributes!(emotion_params)
-      redirect_to emotion_path(@emotion), flash: { success: "You have updated that emotion." }
+      redirect_to emotions_path, flash: { success: "You have updated that emotion." }
     else
       render 'edit'
     end

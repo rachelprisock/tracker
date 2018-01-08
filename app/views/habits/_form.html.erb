@@ -11,16 +11,12 @@
 <div class="col-md-5">
   <%= form_for @habit, html: {class: "habit_form"} do |f| %>
       <div class="form-group">
-        <%= f.label :category_id, "Category", class: "form-label" %>
-        <%= f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {selected: @habit.category_id}, { class: "form-control", autofocus: true } %>
-      </div>
-      <div class="form-group">
-        <%= f.label :habit_type_id, "Habit Type", class: "form-label" %>
+        <p class="lead">What activity did you do?</p>
         <%= f.select :habit_type_id, HabitType.all.collect {|p| [ p.name, p.id ] }, {selected: @habit.habit_type_id}, { class: "form-control" } %>
       </div>
 
       <div class="form-group">
-        <%= f.label :time_in_minutes, "Time Spent in Minutes", class: "form-label" %>
+        <p class="lead">For how long?</p>
         <%= f.number_field :time_in_minutes, value: @habit.time_in_minutes, class: "form-control" %>
       </div>
 
