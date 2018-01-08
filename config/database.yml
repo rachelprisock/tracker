@@ -3,7 +3,7 @@ development:
   encoding: utf8
   database: tracker_development
   pool: 5
-  host: localhost
+  host: ENV["DATABASE_URL"]
   username: 
   password:
 
@@ -12,6 +12,6 @@ production:
   encoding: utf8
   database: tracker_production
   pool: 5
-  host: localhost
+  host: ENV["DATABASE_URL"]
   username: 
   password:
