@@ -27,3 +27,13 @@
       </div>
   <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $('#habit_habit_type_id').change(function() {
+      if($('#habit_habit_type_id').val() == 3) {
+          $('#habit_time_in_minutes').parent().hide();
+      } else {
+          $('#habit_time_in_minutes').parent().show();
+      }
+  });
+</script>

@@ -8,6 +8,13 @@
       <div>
         <b>Time Spent:</b> <%= @habit.time_in_minutes %>
       </div>
+      <div>
+        <b>Time Spent Today:</b> <%= @daily_amount.sum(:time_in_minutes) %>
+      </div>
+    <% else %>
+        <div>
+          <b>Times Today:</b> <%= @daily_amount.count %>
+        </div>
     <% end %>
     <div>
       <b>Created On:</b> <%= format_date(@habit.created_at) %>
