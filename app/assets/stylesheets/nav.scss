@@ -19,6 +19,7 @@ body {
 
 #sidebar-menu {
   font-family: 'Alegreya Sans SC', sans-serif;
+  display: none;
 }
 
 a.navbar-brand {
@@ -29,12 +30,16 @@ a.nav-link.dropdown-toggle {
   color: white !important;
 }
 
+#sidebar-menu ul {
+  text-align: center;
+}
+
 #sidebar-menu li.nav-item a {
   color: white;
+  padding: 0;
 }
 
 #sidebar-menu li.nav-item a i {
-  padding-right: 1em;
 }
 
 #content-and-sidebar {
@@ -50,4 +55,17 @@ a.nav-link.dropdown-toggle {
 
 .sidebar-dropdown-menu {
   background-color: #80aaff;
+}
+
+.sub-side-menu {
+  background-color: #192145;
+}
+
+.sub-side-menu ul {
+  list-style-type: none !important;
+  padding-left: 0 !important;
+}
+
+.sub-side-menu ul li {
+  padding: .5em;
 }
