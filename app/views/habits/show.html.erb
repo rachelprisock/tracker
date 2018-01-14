@@ -4,9 +4,11 @@
     <div>
       <b>Habit Type:</b> <%= @habit.habit_type.name %>
     </div>
-    <div>
-      <b>Time Spent:</b> <%= @habit.time_in_minutes %>
-    </div>
+    <% if @habit.time_in_minutes %>
+      <div>
+        <b>Time Spent:</b> <%= @habit.time_in_minutes %>
+      </div>
+    <% end %>
     <div>
       <b>Created On:</b> <%= format_date(@habit.created_at) %>
     </div>
