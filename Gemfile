@@ -56,7 +56,15 @@ group :development do
   gem 'annotate'
 end
 
+# Heroku Uses This
 gem 'rails_12factor'
 
+# User Authentication
 gem 'devise'
+
+# Graphing Library
+gem 'chartkick'
+
+gem 'groupdate'
+
 

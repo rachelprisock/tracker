@@ -3,17 +3,42 @@
   <!--<p class="lead text-muted">-->
     <!--From here you can see your weekly progress, add new goals and track everything.-->
   <!--</p>-->
+  <h1><%= DateTime.now.strftime("%B") %></h1>
   <div class="row widget-row">
     <div class="col-md-12 col-12">
       <div class="card">
         <div class="card-block">
           <h4 class="card-title">
-            Your Daily Activities
+            Spending
           </h4>
           <hr>
-          This is some text within a card block.
+          <%= line_chart @spending %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            Emotions
+          </h4>
+          <hr>
+          <%= pie_chart @emotion_groups %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            Smoking
+          </h4>
+          <hr>
+          <%= line_chart @smoking %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
