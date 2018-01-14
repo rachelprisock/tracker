@@ -1,4 +1,4 @@
-<div id="sidebar-menu" class="col-md-2 col-2" style="padding: 1em; background: #80aaff">
+<div id="sidebar-menu" class="col-md-2 col-2">
   <!--option 2: #7376df-->
   <% if user_signed_in? %>
     <ul class="nav flex-column text-center">
@@ -15,7 +15,7 @@
           <br>
           Track
         </a>
-        <div id="eventMenuCollapse" class="collapse sub-side-menu" role="tabpanel" aria-labelledby="headingOne">
+        <div id="eventMenuCollapse" class="collapse sub-side-menu collapse-ccc" role="tabpanel" aria-labelledby="headingOne">
           <ul>
             <li>
               <a href="<%= new_emotion_path %>">
@@ -61,7 +61,7 @@
           <br>
           Gains
         </a>
-        <div id="progressMenuCollapse" class="collapse sub-side-menu" role="tabpanel" aria-labelledby="headingOne">
+        <div id="progressMenuCollapse" class="collapse sub-side-menu collapse-ccc" role="tabpanel" aria-labelledby="headingTwo">
           <ul>
             <li>
               <a href="<%= emotions_path %>">
