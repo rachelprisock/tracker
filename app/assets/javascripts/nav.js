@@ -4,14 +4,14 @@
 $( document ).on('turbolinks:load', function() {
     $('#menu-bar').click(function(){
         var left = $('#main-content');
-        if(left.hasClass('col-md-11 col-11'))
+        if(left.hasClass('col-md-10 col-10'))
         {
             $('#sidebar-menu').toggle("slide", { direction: "left" }, 250);
-            left.removeClass("col-md-11 col-11").addClass("col-md-12 col-12");
+            left.removeClass("col-md-10 col-10").addClass("col-md-12 col-12");
         }
         else
         {
-            left.removeClass("col-md-12 col-12").addClass("col-md-11 col-11");
+            left.removeClass("col-md-12 col-12").addClass("col-md-10 col-10");
             $('#sidebar-menu').toggle("slide", { direction: "left" }, 250);
         }
 
