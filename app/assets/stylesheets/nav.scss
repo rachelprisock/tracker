@@ -21,8 +21,6 @@ body {
   font-family: 'Alegreya Sans SC', sans-serif;
   display: none;
   background: #80aaff;
-  padding-top: 1em;
-  padding-bottom: 1em;
   padding-left: 0;
   padding-right: 0;
 }
@@ -44,7 +42,9 @@ a.nav-link.dropdown-toggle {
   padding: 0;
 }
 
-#sidebar-menu li.nav-item a i {
+#sidebar-menu li.nav-item {
+  padding-top:.5em;
+  padding-bottom:.5em;
 }
 
 #content-and-sidebar {

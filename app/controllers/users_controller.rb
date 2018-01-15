@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     ).sum(
         :amount_in_dollars
     )
+    @total_spent = @spending.values.inject { |a, b| a + b }
+    @income = Transaction.where(
+        transaction_type_id: 1,
+        transaction_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+    ).sum(:amount_in_dollars)
     emotion_groups = Emotion.where(
         created_at: DateTime.now.beginning_of_month..DateTime.now.end_of_month
     ).group(:emotion_type).count

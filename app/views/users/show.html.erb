@@ -3,7 +3,7 @@
   <!--<p class="lead text-muted">-->
     <!--From here you can see your weekly progress, add new goals and track everything.-->
   <!--</p>-->
-  <h1><%= DateTime.now.strftime("%B") %></h1>
+  <h1><%= DateTime.now.strftime("%B %d, %Y at %H:%M") %></h1>
   <div class="row widget-row">
     <div class="col-md-12 col-12">
       <div class="card">
@@ -13,6 +13,22 @@
           </h4>
           <hr>
           <%= line_chart @spending %>
+          <hr>
+          <h4>
+            <span style="color: #32CD32;">
+              <%= number_to_currency(@income, precision: 0) %>
+            </span> -
+            <span style="color: red;">
+              <%= number_to_currency(@total_spent, precision: 0) %>
+            </span> =
+            <% if (@income - @total_spent) > 0 %>
+              <span style="color: #32CD32;">
+            <% else %>
+              <span style="color: red;">
+            <% end %>
+              <%= number_to_currency(@income - @total_spent, precision: 0) %>
+            </span>
+          </h4>
         </div>
       </div>
     </div>
