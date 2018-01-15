@@ -1,4 +1,6 @@
 class HabitsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @habit = Habit.new
     @user = current_user

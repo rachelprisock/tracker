@@ -1,4 +1,6 @@
 class LifeEventsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @life_event = LifeEvent.new
     @user = current_user

@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   has_many :emotions
   has_many :life_events
+  has_many :journal_entries
 end

@@ -1,0 +1,18 @@
+<div class="col-md-8 offset-md-2 col-8 offset-xs-2">
+  <h1>About this journal entry:</h1>
+  <div>
+    <div>
+      <b>Title:</b> <%= @journal_entry.title %>
+    </div>
+    <div>
+      <b>Created On:</b> <%= format_date(@journal_entry.created_at) %>
+    </div>
+    <div>
+      <b>Entry:</b> <%= @journal_entry.entry %>
+    </div>
+  </div>
+  <div style="padding-top: .5em">
+    <%= link_to "Edit", edit_journal_entry_path(@journal_entry), class: 'btn btn-primary' %>
+    <%= link_to "Delete", journal_entry_path(@journal_entry), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 class TransactionGoalTasksController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @transaction_goal_task = TransactionGoalTask.new
     @user = current_user

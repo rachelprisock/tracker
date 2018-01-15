@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108005253) do
+ActiveRecord::Schema.define(version: 20180115081513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 20180108005253) do
 
   add_index "habits", ["habit_type_id"], name: "index_habits_on_habit_type_id", using: :btree
   add_index "habits", ["user_id"], name: "index_habits_on_user_id", using: :btree
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.text     "entry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "journal_entries", ["user_id"], name: "index_journal_entries_on_user_id", using: :btree
 
   create_table "life_event_types", force: :cascade do |t|
     t.string   "name"
@@ -186,6 +196,7 @@ ActiveRecord::Schema.define(version: 20180108005253) do
   add_foreign_key "habit_goal_tasks", "users"
   add_foreign_key "habits", "habit_types"
   add_foreign_key "habits", "users"
+  add_foreign_key "journal_entries", "users"
   add_foreign_key "life_events", "life_event_types"
   add_foreign_key "life_events", "users"
   add_foreign_key "transaction_goal_tasks", "goals"

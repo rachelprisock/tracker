@@ -1,0 +1,28 @@
+<div class="col-md-8 offset-md-2 col-8 offset-xs-2">
+  <h1 style="padding-bottom: 1em;">Journal Entries</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Entered At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @journal_entries.each do |journal_entry| %>
+        <tr>
+          <td><%= journal_entry.title %></td>
+          <td><%= format_date(journal_entry.created_at) %></td>
+          <td>
+            <%= link_to "View", journal_entry_path(journal_entry) %> |
+            <%= link_to "Edit", edit_journal_entry_path(journal_entry) %> |
+            <%= link_to "Delete", journal_entry_path(journal_entry), method: :delete  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="padding-top: 1.5em;">
+    <%= link_to "Add Another", new_journal_entry_path, class: "btn btn-success" %>
+  </div>
+</div>

@@ -10,15 +10,14 @@
 
 <div class="col-md-12 col-12">
   <%= form_for @transaction, html: {class: "transaction_form"} do |f| %>
+      <div class="form-group">
+        <p class="lead">What type of transaction?</p>
+        <%= f.select :transaction_type_id, TransactionType.all.reverse.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_type_id}, { class: "form-control" } %>
+      </div>
 
       <div class="form-group">
         <p class="lead">What category does this fall under?</p>
         <%= f.select :transaction_category_id, TransactionCategory.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_category_id}, { class: "form-control", autofocus: true } %>
-      </div>
-
-      <div class="form-group">
-        <p class="lead">What type of transaction?</p>
-        <%= f.select :transaction_type_id, TransactionType.all.collect {|p| [ p.name, p.id ] }, {selected: @transaction.transaction_type_id}, { class: "form-control" } %>
       </div>
 
       <p class="lead">How much?</p>

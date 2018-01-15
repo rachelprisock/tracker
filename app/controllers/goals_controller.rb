@@ -1,4 +1,6 @@
 class GoalsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @goal = Goal.new
     @user = current_user

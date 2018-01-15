@@ -1,4 +1,6 @@
 class HabitGoalTasksController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @habit_goal_task = HabitGoalTask.new
     @user = current_user

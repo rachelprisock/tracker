@@ -63,4 +63,5 @@ Rails.application.routes.draw do
   resources :goals
   resources :transaction_goal_tasks
   resources :habit_goal_tasks
+  resources :journal_entries
 end

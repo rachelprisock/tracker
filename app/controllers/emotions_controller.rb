@@ -1,4 +1,6 @@
 class EmotionsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @emotion = Emotion.new
     @user = current_user
