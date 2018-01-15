@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @smoking = Habit.where(
                         habit_type_id: 3,
                         created_at: DateTime.now.beginning_of_month..DateTime.now.end_of_month
-    ).group_by_day(:created_at, time_zone: "UTC").count
+    ).group_by_day(:created_at).count
 
     @time_habits = Habit.all.reject{|habit| habit.habit_type.name == "Smoking"}
   end
