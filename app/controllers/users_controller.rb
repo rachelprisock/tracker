@@ -22,10 +22,14 @@ class UsersController < ApplicationController
     ).group(:emotion_type).count
     @emotion_groups = emotion_groups.transform_keys {|key| key.name}
 
-    @smoking = Habit.where(
-                        habit_type_id: 3,
-                        created_at: DateTime.now.beginning_of_month..DateTime.now.end_of_month
-    ).group_by_day(:created_at).count
+    habit_groups =  Habit.where(
+                        date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+    ).group(:habit_type_id).group_by_day(:date).count
+    @habits = {}
+    habit_groups.each do |id_date, count|
+      id_date[0] = HabitType.find(id_date[0]).name
+      @habits[id_date] = count
+    end
 
     @time_habits = Habit.all.reject{|habit| habit.habit_type.name == "Smoking"}
   end

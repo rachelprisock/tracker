@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130041646) do
+ActiveRecord::Schema.define(version: 20180130043057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180130041646) do
     t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.integer  "quantity",      default: 1, null: false
+    t.date     "date"
   end
 
   add_index "habits", ["habit_type_id"], name: "index_habits_on_habit_type_id", using: :btree

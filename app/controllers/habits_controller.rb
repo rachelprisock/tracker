@@ -9,7 +9,7 @@ class HabitsController < ApplicationController
   def create
     habit = Habit.new(habit_params)
     if habit.save!
-      redirect_to habit_path(habit), success: "You've added an habit"
+      redirect_to habits_path, success: "You've added an habit"
     else
       redirect_to new_habit_path, danger: "Unable to save your habit"
     end
@@ -32,7 +32,7 @@ class HabitsController < ApplicationController
   def update
     @habit = Habit.find(params[:id])
     if @habit.update_attributes!(habit_params)
-      redirect_to habit_path(@habit), flash: { success: "You have updated that habit." }
+      redirect_to habits_path, flash: { success: "You have updated that habit." }
     else
       render 'edit'
     end
@@ -50,6 +50,6 @@ class HabitsController < ApplicationController
   private
 
   def habit_params
-    params.require(:habit).permit(:habit_type_id, :time_in_minutes, :user_id)
+    params.require(:habit).permit(:habit_type_id, :date, :quantity, :user_id)
   end
 end

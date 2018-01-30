@@ -63,4 +63,12 @@ namespace :add_static_data do
     TransactionCategory.create(name: "Paycheck")
     TransactionCategory.create(name: "Contracting")
   end
+
+  desc 'make date not null'
+  task make_date_not_null: :environment do
+    habits = Habit.all
+    habits.each do |habit|
+      habit.update_attributes(date:habit.created_at)
+    end
+  end
 end
