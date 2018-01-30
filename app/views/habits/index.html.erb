@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th>Habit Type</th>
-        <th>Time in Minutes</th>
+        <th>Quantity</th>
         <th>Entered At</th>
         <th>Actions</th>
       </tr>
@@ -13,7 +13,7 @@
       <% @habits.each do |habit| %>
         <tr>
           <td><%= habit.habit_type.name %></td>
-          <td><%= habit.time_in_minutes %></td>
+          <td><%= habit.quantity %></td>
           <td><%= format_date(habit.created_at) %></td>
           <td>
             <%= link_to "View", habit_path(habit) %> |

@@ -17,7 +17,7 @@ class HabitsController < ApplicationController
 
   def show
     @habit = Habit.find(params[:id])
-    @daily_amount = Habit.where(habit_type_id: @habit.habit_type_id, created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
+    @daily_amount = Habit.where(habit_type_id: @habit.habit_type_id, created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day).sum(:quantity)
   end
 
   def index

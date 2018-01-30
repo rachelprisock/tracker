@@ -16,8 +16,8 @@
       </div>
 
       <div class="form-group">
-        <p class="lead">For how long? (In Minutes)</p>
-        <%= f.number_field :time_in_minutes, value: @habit.time_in_minutes, class: "form-control" %>
+        <p class="lead">How many times?</p>
+        <%= f.select :quantity, [[1, 1],[2, 2],[3, 3],[4, 4],[5, 5]], {selected: @habit.habit_type_id}, { class: "form-control" } %>
       </div>
 
       <%= f.hidden_field :user_id, value: @user.id %>

@@ -1,0 +1,21 @@
+<div>
+  <ul>
+    <% if @habit_type.errors %>
+        <% @habit_type.errors.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col-md-12 col-12">
+  <%= form_for @habit_type, html: {class: "habit_type_form"} do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: "Enter a habit type", class: "form-control" %>
+      </div>
+
+      <div class="actions form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>
