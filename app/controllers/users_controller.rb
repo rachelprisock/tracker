@@ -13,6 +13,9 @@ class UsersController < ApplicationController
         :amount_in_dollars
     )
     @total_spent = @spending.values.inject { |a, b| a + b }
+    if @total_spent.nil?
+      @total_spent = 0
+    end
     @income = Transaction.where(
         transaction_type_id: 1,
         transaction_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
